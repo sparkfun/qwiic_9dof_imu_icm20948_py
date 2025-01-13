@@ -37,7 +37,7 @@
 # SOFTWARE.
 #==================================================================================
 
-"""
+"""!
 qwiic_icm20948
 ============
 Python module for the [SparkFun 9DoF IMU Breakout - ICM-20948 (Qwiic)](https://www.sparkfun.com/products/15335)
@@ -47,7 +47,6 @@ This python package is a port of the existing [SparkFun ICM-20948 Arduino Librar
 This package can be used in conjunction with the overall [SparkFun qwiic Python Package](https://github.com/sparkfun/Qwiic_Py)
 
 New to qwiic? Take a look at the entire [SparkFun qwiic ecosystem](https://www.sparkfun.com/qwiic).
-
 """
 #-----------------------------------------------------------------------------
 
@@ -147,15 +146,15 @@ AK09916_REG_CNTL3 = 0x32
 # from this module.
 
 class QwiicIcm20948(object):
-	"""
+	"""!
 	QwiicIcm20948
 
-		:param address: The I2C address to use for the device. 
-						If not provided, the default address is used.
-		:param i2c_driver: An existing i2c driver object. If not provided 
-						a driver object is created. 
-		:return: The ICM20948 device object.
-		:rtype: Object
+	@param address: The I2C address to use for the device. 
+					If not provided, the default address is used.
+	@param i2c_driver: An existing i2c driver object. If not provided 
+					a driver object is created.
+
+	@return **Object** The ICM20948 device object.
 	"""
 	# Constructor
 	device_name			= _DEFAULT_NAME
@@ -333,12 +332,10 @@ class QwiicIcm20948(object):
 	# Is an actual board connected to our system?
 
 	def isConnected(self):
-		""" 
-			Determine if a ICM20948 device is conntected to the system..
+		"""!
+		Determine if a ICM20948 device is conntected to the system..
 
-			:return: True if the device is connected, otherwise False.
-			:rtype: bool
-
+		@return **bool** True if the device is connected, otherwise False.
 		"""
 		return qwiic_i2c.isDeviceConnected(self.address)
 
@@ -349,12 +346,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the bank register of the ICM20948 module
 	def setBank(self, bank):
-		""" 
-			Sets the bank register of the ICM20948 module
+		"""!
+		Sets the bank register of the ICM20948 module
 
-			:return: Returns true if the bank was a valid value and it was set, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the bank was a valid value and it was set, otherwise False.
 		"""
 		if bank > 3:	# Only 4 possible banks
 			print("Invalid Bank value: %d" % bank)
@@ -368,12 +363,10 @@ class QwiicIcm20948(object):
 	#
 	# Performs a software reset on the ICM20948 module
 	def swReset(self):
-		""" 
-			Performs a software reset on the ICM20948 module
+		"""!
+		Performs a software reset on the ICM20948 module
 
-			:return: Returns true if the software reset was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the software reset was successful, otherwise False.
 		"""
 		# Read the Power Management Register, store in local variable "register"
 		self.setBank(0)
@@ -391,12 +384,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the ICM20948 module in or out of sleep mode
 	def sleep(self, on):
-		""" 
-			Sets the ICM20948 module in or out of sleep mode
+		"""!
+		Sets the ICM20948 module in or out of sleep mode
 
-			:return: Returns true if the sleep setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the sleep setting write was successful, otherwise False.
 		"""
 		# Read the Power Management Register, store in local variable "register"
 		self.setBank(0)
@@ -417,12 +408,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the ICM20948 module in or out of low power mode
 	def lowPower(self, on):
-		""" 
-			Sets the ICM20948 module in or out of low power mode
+		"""!
+		Sets the ICM20948 module in or out of low power mode
 
-			:return: Returns true if the power mode setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the power mode setting write was successful, otherwise False.
 		"""
 		# Read the Power Management Register, store in local variable "register"
 		self.setBank(0)
@@ -443,12 +432,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the sample mode of the ICM90248 module
 	def setSampleMode(self, sensors, mode):
-		""" 
-			Sets the sample mode of the ICM90248 module
+		"""!
+		Sets the sample mode of the ICM90248 module
 
-			:return: Returns true if the sample mode setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the sample mode setting write was successful, otherwise False.
 		"""
 		# check for valid sensor ID from user of this function
 		if ((sensors & (ICM_20948_Internal_Acc | ICM_20948_Internal_Gyr | ICM_20948_Internal_Mst)) == False):
@@ -489,12 +476,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the full scale range for the accel in the ICM20948 module
 	def setFullScaleRangeAccel(self, mode):
-		""" 
-			Sets the full scale range for the accel in the ICM20948 module
+		"""!
+		Sets the full scale range for the accel in the ICM20948 module
 
-			:return: Returns true if the full scale range setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the full scale range setting write was successful, otherwise False.
 		"""
 		# Read the Accel Config Register, store in local variable "register"
 		self.setBank(2)
@@ -513,12 +498,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the full scale range for the gyro in the ICM20948 module
 	def setFullScaleRangeGyro(self, mode):
-		""" 
-			Sets the full scale range for the gyro in the ICM20948 module
+		"""!
+		Sets the full scale range for the gyro in the ICM20948 module
 
-			:return: Returns true if the full scale range setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the full scale range setting write was successful, otherwise False.
 		"""
 		# Read the Gyro Config Register, store in local variable "register"
 		self.setBank(2)
@@ -537,12 +520,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the digital low pass filter for the accel in the ICM20948 module
 	def setDLPFcfgAccel(self, dlpcfg):
-		""" 
-			Sets the digital low pass filter for the accel in the ICM20948 module
+		"""!
+		Sets the digital low pass filter for the accel in the ICM20948 module
 
-			:return: Returns true if the dlp setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the dlp setting write was successful, otherwise False.
 		"""
 		# Read the Accel Config Register, store in local variable "register"
 		self.setBank(2)
@@ -561,12 +542,10 @@ class QwiicIcm20948(object):
 	#
 	# Sets the digital low pass filter for the gyro in the ICM20948 module
 	def setDLPFcfgGyro(self, dlpcfg):
-		""" 
-			Sets the digital low pass filter for the gyro in the ICM20948 module
+		"""!
+		Sets the digital low pass filter for the gyro in the ICM20948 module
 
-			:return: Returns true if the dlp setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the dlp setting write was successful, otherwise False.
 		"""
 		# Read the gyro Config Register, store in local variable "register"
 		self.setBank(2)
@@ -585,12 +564,10 @@ class QwiicIcm20948(object):
 	#
 	# Enables or disables the accelerometer DLPF of the ICM90248 module
 	def enableDlpfAccel(self, on):
-		""" 
-			Enables or disables the accelerometer DLPF of the ICM90248 module
+		"""!
+		Enables or disables the accelerometer DLPF of the ICM90248 module
 
-			:return: Returns true if the DLPF mode setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the DLPF mode setting write was successful, otherwise False.
 		"""
 
 		# Read the AGB2_REG_ACCEL_CONFIG_1, store in local variable "register"
@@ -612,12 +589,10 @@ class QwiicIcm20948(object):
 	#
 	# Enables or disables the Gyro DLPF of the ICM90248 module
 	def enableDlpfGyro(self, on):
-		""" 
-			Enables or disables the Gyro DLPF of the ICM90248 module
+		"""!
+		Enables or disables the Gyro DLPF of the ICM90248 module
 
-			:return: Returns true if the DLPF mode setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the DLPF mode setting write was successful, otherwise False.
 		"""
 
 		# Read the AGB2_REG_GYRO_CONFIG_1, store in local variable "register"
@@ -639,12 +614,10 @@ class QwiicIcm20948(object):
 	#
 	# Returns status of RAW_DATA_0_RDY_INT the ICM90248 module
 	def dataReady(self):
-		""" 
-			Returns status of RAW_DATA_0_RDY_INT the ICM90248 module
+		"""!
+		Returns status of RAW_DATA_0_RDY_INT the ICM90248 module
 
-			:return: Returns true if raw data is ready, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if raw data is ready, otherwise False.
 		"""
 
 		# Read the AGB0_REG_INT_STATUS_1, store in local variable "register"
@@ -662,12 +635,10 @@ class QwiicIcm20948(object):
 	#
 	# Takes an input data of 16 bits, and returns the signed 32 bit int version of this data
 	def ToSignedInt(self, input):
-		""" 
-			Takes an input data of 16 bits, and returns the signed 32 bit int version of this data
+		"""!
+		Takes an input data of 16 bits, and returns the signed 32 bit int version of this data
 
-			:return: Signed 32 bit integer
-			:rtype: int
-
+		@return **int** Signed 32 bit integer
 		"""
 		if input > 32767:
 			input -= 65536
@@ -678,12 +649,10 @@ class QwiicIcm20948(object):
 	#
 	# Reads and updates raw values from accel, gyro, mag and temp of the ICM90248 module
 	def getAgmt(self):
-		""" 
-			Reads and updates raw values from accel, gyro, mag and temp of the ICM90248 module
+		"""!
+		Reads and updates raw values from accel, gyro, mag and temp of the ICM90248 module
 
-			:return: Returns True if I2C readBlock was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns True if I2C readBlock was successful, otherwise False.
 		"""
 
 		# Read all of the readings starting at AGB0_REG_ACCEL_XOUT_H
@@ -733,12 +702,10 @@ class QwiicIcm20948(object):
 	#
 	# Enables or disables I2C Master Passthrough
 	def i2cMasterPassthrough(self, passthrough):
-		""" 
-			Enables or disables I2C Master Passthrough
+		"""!
+		Enables or disables I2C Master Passthrough
 
-			:return: Returns true if the setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the setting write was successful, otherwise False.
 		"""
 
 		# Read the AGB0_REG_INT_PIN_CONFIG, store in local variable "register"
@@ -760,12 +727,10 @@ class QwiicIcm20948(object):
 	#
 	# Enables or disables I2C Master
 	def i2cMasterEnable(self, enable):
-		""" 
-			Enables or disables I2C Master
+		"""!
+		Enables or disables I2C Master
 
-			:return: Returns true if the setting write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the setting write was successful, otherwise False.
 		"""
 		
 		self.i2cMasterPassthrough(False) # Disable BYPASS_EN
@@ -879,12 +844,10 @@ class QwiicIcm20948(object):
 	#
 	# Checks to see that the Magnetometer returns the correct ID value
 	def magWhoIAm(self):
-		""" 
-			Checks to see that the Magnatometer returns the correct ID value
+		"""!
+		Checks to see that the Magnatometer returns the correct ID value
 
-			:return: Returns true if the check was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the check was successful, otherwise False.
 		"""
 
 		whoiam1 = self.readMag(AK09916_REG_WIA1)
@@ -900,12 +863,10 @@ class QwiicIcm20948(object):
 	#
 	# Resets I2C Master Module
 	def i2cMasterReset(self):
-		""" 
-			Resets I2C Master Module
+		"""!
+		Resets I2C Master Module
 
-			:return: Returns true if the i2c write was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the i2c write was successful, otherwise False.
 		"""
 
 		# Read the AGB0_REG_USER_CTRL, store in local variable "register"
@@ -924,12 +885,10 @@ class QwiicIcm20948(object):
 	#
 	# Configures Master/slave settings for the ICM20948 as master, and slave in slots 0-3
 	def i2cMasterConfigureSlave(self, slave, addr, reg, len, Rw, enable, data_only, grp, swap):
-		""" 
-			Configures Master/slave settings for the ICM20948 as master, and slave in slots 0-3
+		"""!
+		Configures Master/slave settings for the ICM20948 as master, and slave in slots 0-3
 
-			:return: Returns true if the configuration was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true if the configuration was successful, otherwise False.
 		"""
 		# Adjust slave address, reg (aka sub-address), and control as needed for each slave slot (0-3)
 		slv_addr_reg = 0x00
@@ -981,12 +940,10 @@ class QwiicIcm20948(object):
 	#
 	# Initialize the magnotometer with default values
 	def startupMagnetometer(self):
-		""" 
-			Initialize the magnotometer with default values
+		"""!
+		Initialize the magnotometer with default values
 
-			:return: Returns true of the initializtion was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true of the initializtion was successful, otherwise False.
 		"""
 		self.i2cMasterPassthrough(False) #Do not connect the SDA/SCL pins to AUX_DA/AUX_CL
 		self.i2cMasterEnable(True)
@@ -1018,12 +975,10 @@ class QwiicIcm20948(object):
 	#
 	# Initialize the system/validate the board. 
 	def begin(self):
-		""" 
-			Initialize the operation of the ICM20948 module
+		"""!
+		Initialize the operation of the ICM20948 module
 
-			:return: Returns true of the initializtion was successful, otherwise False.
-			:rtype: bool
-
+		@return **bool** Returns true of the initializtion was successful, otherwise False.
 		"""
 		# are we who we need to be?
 		self.setBank(0)

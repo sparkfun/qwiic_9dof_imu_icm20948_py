@@ -1,0 +1,64 @@
+name: Build Documentation and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: "true"
+
+      - name: Set Version
+        run: echo "PROJECT_NUMBER = `git describe --tags`" >> ./docs/doxygen/doxygen-config
+
+      - name: Build Documentation
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          doxyfile-path: "./docs/doxygen/doxygen-config"
+
+      # Upload the documentation as an artifact
+      - name: Upload documentation
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./docs/html
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
