@@ -4,7 +4,7 @@ requires = ["setuptools"]
 [project]
 name = "sparkfun_qwiic_icm20948"
 version = "0.0.1"
-description = long_description
+description = "Sparkfun Electronics Qwiic 9DoF_IMU_ICM20948 Package"
 readme = "DESCRIPTION.rst"
 
 authors = [{name="Sparkfun Electronics", email="info@sparkfun.com"}]
