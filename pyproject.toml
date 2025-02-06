@@ -46,4 +46,4 @@ keywords = ["electronics, maker"]
 homepage = "https://www.sparkfun.com/products/15318"
 
 [tool.setuptools]
-py-modules = ["qwiic_9dof_imu_icm20948"]
+py-modules = ["qwiic_icm20948"]
