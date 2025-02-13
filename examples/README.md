@@ -7,5 +7,5 @@ NOTE: Any numbering of examples is to retain consistency with the Arduino librar
 Simple Example for the Qwiic ICM20948 Device
 
 The key methods showcased by this example are: 
--[dataReady()](https://docs.sparkfun.com/qwiic_9dof_imu_icm20948_py/classqwiic__icm20948_1_1_qwiic_icm20948.html#a84997027281d43812651ef05ef23a65f)
--[getAgmt()](https://docs.sparkfun.com/qwiic_9dof_imu_icm20948_py/classqwiic__icm20948_1_1_qwiic_icm20948.html#a49f49362c480429d81854b236ea8b6ad)
+- [dataReady()](https://docs.sparkfun.com/qwiic_9dof_imu_icm20948_py/classqwiic__icm20948_1_1_qwiic_icm20948.html#a84997027281d43812651ef05ef23a65f)
+- [getAgmt()](https://docs.sparkfun.com/qwiic_9dof_imu_icm20948_py/classqwiic__icm20948_1_1_qwiic_icm20948.html#a49f49362c480429d81854b236ea8b6ad)
