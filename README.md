@@ -23,7 +23,7 @@ This repository implements a Python package for the SparkFun Qwiic 9DOF. This pa
 
 ## About the Package
 
-This python package enables the user to access the features of the 9DOF via a single Qwiic cable. This includes <reading acceleration, reading gyroscope, reading magnetometer, reading temperature> and more. The capabilities of the 9DOF are each demonstrated in the included examples.
+This python package enables the user to access the features of the 9DOF via a single Qwiic cable. This includes reading acceleration, reading gyroscope, reading magnetometer, reading temperature and more. The capabilities of the 9DOF are each demonstrated in the included examples.
 
 New to qwiic? Take a look at the entire [SparkFun qwiic ecosystem](https://www.sparkfun.com/qwiic).
 
@@ -81,7 +81,7 @@ mpremote mip install github:sparkfun/qwiic_9dof_imu_icm20948_py
 
 If you would also like to install the examples for this repository, issue the following mip command as well:
 ```sh
-mprmeote mip install github:sparkfun/qwiic_9dof_imu_icm20948_py@examples
+mpremote mip install --target "" github:sparkfun/qwiic_9dof_imu_icm20948_py@examples
 ```
 
 ### CircuitPython Installation
