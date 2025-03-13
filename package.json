@@ -5,5 +5,5 @@
     "deps": [
       ["github:sparkfun/Qwiic_I2C_Py", "master"]
     ],
-    "version": "0.0.1"
+    "version": "2.0.0"
 }
