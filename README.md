@@ -2,7 +2,7 @@
 
 # SparkFun Qwiic 9DOF - Python Package
 
-![PyPi Version](https://img.shields.io/pypi/v/sparkfun_qwiic_9dof_imu_icm20948)
+![PyPi Version](https://img.shields.io/pypi/v/sparkfun_qwiic_icm20948)
 ![GitHub issues](https://img.shields.io/github/issues/sparkfun/qwiic_9dof_imu_icm20948_py)
 ![License](https://img.shields.io/github/license/sparkfun/qwiic_9dof_imu_icm20948_py)
 ![X](https://img.shields.io/twitter/follow/sparkfun)
