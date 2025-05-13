@@ -337,7 +337,7 @@ class QwiicIcm20948(object):
 
 		@return **bool** True if the device is connected, otherwise False.
 		"""
-		return qwiic_i2c.isDeviceConnected(self.address)
+		return self._i2c.isDeviceConnected(self.address)
 
 	connected = property(isConnected)
 
